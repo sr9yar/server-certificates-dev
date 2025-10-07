@@ -33,6 +33,11 @@ openssl x509 -req \
   -extfile server_ext.cnf \
   -extensions v3_req
 
+openssl x509 -in rootCA.crt -out rootCA.pem -outform PEM
+
+openssl x509 -in server.crt -out server.pem -outform PEM
+
+
 ```
 
 
@@ -55,6 +60,9 @@ openssl x509 -req \
   -out client.crt \
   -days 3650 \
   -sha256
+
+openssl x509 -in client.crt -out client.pem -outform PEM
+
 
 ```
 
