@@ -1,0 +1,38 @@
+[ v3_ca ]
+basicConstraints = critical, CA:TRUE
+keyUsage = critical, keyCertSign, cRLSign
+nameConstraints = critical, @name_constraints
+
+[ name_constraints ]
+permitted;DNS.0 = localhost
+permitted;DNS.1 = .localhost
+permitted;DNS.2 = .local
+permitted;DNS.3 = .dev
+permitted;DNS.4 = .test
+permitted;IP.0 = 127.0.0.0/255.0.0.0
+permitted;IP.1 = 10.0.0.0/255.0.0.0
+permitted;IP.2 = 192.168.0.0/255.255.0.0
+permitted;IP.3 = 172.16.0.0/255.255.0.0
+permitted;IP.4 = 0.0.0.0/255.255.255.255
+
+
+[ v3_req ]
+subjectAltName = @alt_names
+keyUsage = keyEncipherment, dataEncipherment, digitalSignature
+extendedKeyUsage = serverAuth
+
+[ alt_names ]
+DNS.1 = localhost
+DNS.2 = *.localhost
+DNS.3 = *.local
+DNS.4 = *.dev
+DNS.5 = *.test
+DNS.6 = app.local
+DNS.7 = api.local
+DNS.8 = grpc.local
+IP.1  = 127.0.0.1
+IP.2  = 10.0.0.1
+IP.3  = 192.168.1.1
+IP.4  = 172.16.0.1
+IP.5  = 0.0.0.0
+

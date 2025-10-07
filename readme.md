@@ -13,6 +13,8 @@ openssl req -x509 -new -nodes \
   -sha256 \
   -days 10950 \
   -out rootCA.crt \
+  -extensions v3_ca \
+  -config server_ext.cnf \
   -subj "/C=RU/ST=Moscow/L=Moscow/O=Intergalactic Corporation/OU=CA/CN=Intergalactic Corporation Root CA"
 
 openssl genrsa -out server.key 2048
@@ -63,6 +65,19 @@ openssl x509 -req \
 
 openssl x509 -in client.crt -out client.pem -outform PEM
 
+
+```
+
+## Read
+
+
+```bash
+
+openssl x509 -in rootCA.crt -text -noout
+
+openssl x509 -in server.crt -text -noout
+
+openssl x509 -in client.crt -text -noout
 
 ```
 
